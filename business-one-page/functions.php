@@ -248,7 +248,7 @@ function business_one_page_customize_scripts() {
 	$array = array( 
         'ajax_url'   => admin_url( 'admin-ajax.php' ),
         'flushit'    => __( 'Successfully Flushed!','business-one-page' ),
-        'nonce'      => wp_create_nonce('ajax-nonce')
+        'nonce'      => wp_create_nonce('business_one_page_flush_fonts_nonce')
     );
 	wp_enqueue_style( 'business-one-page-customize-style',get_template_directory_uri().'/inc/css/customize.css', BUSINESS_ONE_PAGE_THEME_VERSION, 'screen' );    
     wp_enqueue_script( 'business-one-page-customize-js', get_template_directory_uri().'/inc/js/customize.js', array( 'jquery' ), BUSINESS_ONE_PAGE_THEME_VERSION, true );

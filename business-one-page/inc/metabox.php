@@ -19,21 +19,30 @@ function business_one_page_add_sidebar_layout_box(){
     ); 
 }
 
-$business_one_page_sidebar_layout = array(         
-    'right-sidebar' => array(
-        'value' => 'right-sidebar',
-        'label' => __( 'Right sidebar (default)', 'business-one-page' ),
-        'thumbnail' => get_template_directory_uri() . '/images/right-sidebar.png'
-    ),
-    'no-sidebar' => array(
-        'value'     => 'no-sidebar',
-        'label'     => __( 'No sidebar', 'business-one-page' ),
-        'thumbnail' => get_template_directory_uri() . '/images/no-sidebar.png'
-    )   
-);
+/**
+ * Get Sidebar Layout Data
+ */
+if( ! function_exists( 'business_one_page_get_sidebar_layout_data' ) ){
+    function business_one_page_get_sidebar_layout_data(){
+        return array(    
+            'right-sidebar' => array(
+                'value' => 'right-sidebar',
+                'label' => __( 'Right sidebar (default)', 'business-one-page' ),
+                'thumbnail' => get_template_directory_uri() . '/images/right-sidebar.png'
+            ),
+            'no-sidebar' => array(
+                'value'     => 'no-sidebar',
+                'label'     => __( 'No sidebar', 'business-one-page' ),
+                'thumbnail' => get_template_directory_uri() . '/images/no-sidebar.png'
+            )   
+        );
+    }
+}
+
 
 function business_one_page_sidebar_layout_callback(){
-    global $post, $business_one_page_sidebar_layout;
+    global $post;
+    $business_one_page_sidebar_layout = business_one_page_get_sidebar_layout_data();
     wp_nonce_field( basename( __FILE__ ), 'business_one_page_sidebar_layout_nonce' ); ?>
     <table class="form-table">
         <tr>
@@ -65,7 +74,7 @@ function business_one_page_sidebar_layout_callback(){
  * @hooked to save_post hook
  */
 function business_one_page_save_sidebar_layout( $post_id ) { 
-    global $business_one_page_sidebar_layout; 
+    $business_one_page_sidebar_layout = business_one_page_get_sidebar_layout_data();
 
     // Verify the nonce before proceeding.
     if( !isset( $_POST[ 'business_one_page_sidebar_layout_nonce' ] ) || !wp_verify_nonce( $_POST[ 'business_one_page_sidebar_layout_nonce' ], basename( __FILE__ ) ) )
