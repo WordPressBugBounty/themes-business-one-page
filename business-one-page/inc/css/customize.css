@@ -96,3 +96,7 @@ label.row-element.more-detail{
 .customize-text_editor_desc a:focus{
   box-shadow: 0 1px 0 #0073aa, 0 0 2px 1px #33b3db;
 }
+
+#accordion-section-business_one_page_view_pro .accordion-section-title::after{
+   content: none;
+}

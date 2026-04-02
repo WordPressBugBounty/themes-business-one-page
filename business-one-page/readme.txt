@@ -2,9 +2,9 @@
 
 Contributors: raratheme
 Requires at least: 6.2
-Requires PHP: 7.3
+Requires PHP: 7.4
 Tested up to: 6.9
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: Blog, two-columns, right-sidebar, footer-widgets, custom-background, custom-menu, custom-logo, featured-image-header, featured-images, post-formats, threaded-comments, translation-ready, full-width-template, theme-options, e-commerce, portfolio
@@ -93,6 +93,9 @@ Some codes are taken from Twenty Twenty theme - https://wordpress.org/themes/twe
    GNU General Public License for more details.
    
 == Changelog ==
+
+    1.3.4 - April 02, 2026
+    * Fix: Updated PHP to 7.4.
 
     1.3.3 - Feb 06, 2026
     * Fix: Security issues to Broken Access Control
